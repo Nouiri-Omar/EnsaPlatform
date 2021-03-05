@@ -1,0 +1,10 @@
+﻿@page
+@model EnsaPlatform.Pages.Error503Model
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+
+}
+@if (TempData["error"] is string message)
+{
+    <p>@message</p>
+}   

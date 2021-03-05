@@ -1,0 +1,75 @@
+﻿@page
+@model EnsaPlatform.Pages.Niveaux.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Niveau</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Niveau.NiveauID" class="control-label"></label>
+                <input asp-for="Niveau.NiveauID" class="form-control" />
+                <span asp-validation-for="Niveau.NiveauID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Niveau.ProfesseurID" class="control-label"></label>
+                <select asp-for="Niveau.ProfesseurID" class="form-control" asp-items="ViewBag.Prof"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Niveau.TITRE" class="control-label"></label>
+                <input asp-for="Niveau.TITRE" class="form-control" />
+                <span asp-validation-for="Niveau.TITRE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Niveau.FILIERE" class="control-label"></label>
+                <input asp-for="Niveau.FILIERE" class="form-control" />
+                <span asp-validation-for="Niveau.FILIERE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="table">
+                    <table>
+                        <tr>
+                            @{
+                                int cnt = 0;
+
+                                foreach (var module in ViewBag.module)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                    @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <input type="checkbox"
+                                               name="selectedModule"
+                                               value="@module.ModuleID"
+                                               @(Html.Raw(module.Assigned ? "checked=\"checked\"" : "")) />
+                                        @module.ModuleID @:  @module.TITRE
+                                    @:</td>
+                                }
+                            @:</tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

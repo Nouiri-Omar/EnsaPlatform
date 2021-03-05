@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no'" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>@ViewData["Title"] - ENSAPlatform</title>
+    <link rel="icon" href="~/img/icon.ico" type="image/x-icon" />
+
+    <script src="~/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+        WebFont.load({
+            google: { "families": ["Lato:300,400,700,900"] },
+            custom: { "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['~/css/fonts.min.css'] },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+ <!----> <link rel="stylesheet" href="~/css/atlantis.css">
+
+
+</head>
+
+<body class="bg-default">
+    <partial name="/Pages/Shared/_header.cshtml" />
+    <div class="main-panel container-fluid ">
+
+
+        <div class="content">
+            <div class="page-header"></div>
+            <div class="page-inner">
+                <main role="main" class="container-fluid">
+                    <div class="card bg-grey2 border-dark" style="margin-left:25rem;">
+                        <div class="card-header"><h2>Ensa Plateform</h2></div>
+                        <div class="card-body">
+                            @RenderBody()
+                            @RenderSection("Scripts", false)
+                        </div>
+                        <div class="card-footer"><a class="link-collapse" asp-page="index">Home</a></div>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+        <footer class="footer position-absolute mb--1 py-2  text-muted" data-background-color="blue2">
+            <div class="container-fluid ">
+                <nav class="pull-left">
+                    <div class="copyright ml-auto">
+
+                        &copy; 2021 - EnsaPlatform - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                    </div>
+                </nav>
+                <div class="copyright  ml-auto">
+                    This application has been built By
+                    [ Yassir ] - [ Omar ] - [ Aya ]
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+    <!--   Core JS Files   -->
+    <script src="~/js/core/jquery.3.2.1.min.js"></script>
+    <script src="~/js/core/popper.min.js"></script>
+    <script src="~/js/core/bootstrap.min.js"></script>
+    <script src="~/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="~/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="~/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="~/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+
+    <!-- Chart JS -->
+    <!-- jQuery Sparkline -->
+    <script src="~/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <!-- Datatables -->
+    <!-- Bootstrap Notify -->
+    <script src="~/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="~/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+    <!-- Atlantis JS -->
+
+    <script src="~/js/atlantis.min.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#basic-datatables').DataTable({
+            });
+
+    </script>
+
+</body>
+</html>

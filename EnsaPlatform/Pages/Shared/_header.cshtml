@@ -1,0 +1,125 @@
+﻿
+<div class="main-header">
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <!--  top side header-->
+        <div class="logo-header" data-background-color="blue">
+            <a class="logo navbar-brand" style="color:white;" asp-area="" asp-page="/Index">
+                <img src="~/img/school.png" alt="navbar brand" class="navbar-brand" width="45" height="45" style="margin-right:5px;">ENSA Platform
+            </a>
+
+
+
+            <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="icon-menu"></i>
+                </span>
+            </button>
+            <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+            <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                    <i class="icon-menu"></i>
+                </button>
+            </div>
+
+
+        </div>
+    }
+    <!--top bar-->
+    <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
+        <div class="container-fluid">
+            <ul class="navbar-nav mr-auto">
+                <partial name="/Pages/Shared/_LoginPartial.cshtml" />
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--side bar-->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="sidebar ">
+            <div class="sidebar-wrapper scrollbar scrollbar-inner">
+                <div class="sidebar-content">
+                    <div class="user">
+                        <div class="info">
+                            <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                                <span>
+                                    <!-- User Info -->
+                                    <lang class="avatar-sm float-left mr-2">
+                                        <i class="fas fa-user fa-stack-2x"></i>
+                                    </lang>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="nav nav-primary">
+
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Sceances/Index">Séances</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Niveaux/Index">Niveaux</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Modules/Index">Modules</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Departements/Index">Départements</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Etudiants/Index">Étudiants</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Professeurs/Index">Professeurs</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Matieres/Index">Matiéres</a>
+
+                            </li>
+                        }
+                        @if (User.IsInRole("student"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Etudiants/StudMatiere">voir Vos matiéres</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Etudiants/StudNotes">voir Vos notes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Etudiants/StudSceances">voir vos séances</a>
+
+                            </li>
+
+                        }
+                        @if (User.IsInRole("Professeur"))
+                        {
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Professeurs/ProfSceances">Gérer les Scéances</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Professeurs/ProfNotes" asp-route-Niv="CI3INFO">Gérer les notes</a>
+                                <ul>
+                                </ul>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+

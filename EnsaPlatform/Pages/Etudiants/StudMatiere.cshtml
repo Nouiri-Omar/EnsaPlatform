@@ -1,0 +1,33 @@
+﻿@page
+@model EnsaPlatform.Pages.Etudiants.StudMatiereModel
+@{
+    ViewData["Title"] = "les matieres";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="table-responsive vw-100">
+ 
+    <table id="basic-datatables" class="table  table-striped table-hover">
+        <thead>
+        <th>code matiere</th>
+        <th>titre matiere</th>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Etudiant.Niveau.Module_Niveaus)
+            {
+
+                @foreach (var item1 in item.Module.Module_Matieres)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item1.Matiere.MatiereID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item1.Matiere.TITRE)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

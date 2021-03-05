@@ -1,0 +1,38 @@
+﻿@page
+@model EnsaPlatform.Pages.Niveaux.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Niveau</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Niveau.ProfesseurID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Niveau.ProfesseurID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Niveau.TITRE)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Niveau.TITRE)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Niveau.FILIERE)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Niveau.FILIERE)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Niveau.NiveauID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

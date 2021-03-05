@@ -1,0 +1,37 @@
+﻿@page
+@model EnsaPlatform.Pages.Etudiants.StudNotesModel
+@{
+    ViewData["Title"] = "StudNotes";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Etudiant</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Matiere</th>
+                    <th>Note</th>
+                </tr>
+                @foreach (var item in Model.Notes)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Matiere.TITRE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NoteMatiere)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>

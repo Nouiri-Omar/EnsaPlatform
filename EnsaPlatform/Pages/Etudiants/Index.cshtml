@@ -1,0 +1,97 @@
+﻿@page
+@model EnsaPlatform.Pages.Etudiants.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<div class="table-responsive vw-100">
+
+    <table id="basic-datatables" class="table  table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].NOM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].PRENOM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].CIN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].DATE_NAISSANCE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].LIEU_NAISSANCE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].EMAIL)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].TEL)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].ADDRESSE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].DELEGUE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Etudiant[0].Niveau)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Etudiant)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NOM)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PRENOM)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CIN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DATE_NAISSANCE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LIEU_NAISSANCE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EMAIL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TEL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ADDRESSE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DELEGUE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Niveau.NiveauID)
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a asp-page="./Edit" asp-route-id="@item.EtudiantID">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.EtudiantID">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.EtudiantID">Delete</a>
+                   </div>
+                            </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
